@@ -1,3 +1,3 @@
 # yodle
-custom wordle clone!
+custom wordle clone! v2
 
