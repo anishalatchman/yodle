@@ -50,9 +50,11 @@ const handleLetter = (letter) => {
 
     if(letter == "enter"){
         if(currentCell !== cellsPerRow - 1){
+            linkLabel.tabIndex = -1;
             linkLabel.href = "#";
             linkLabel.textContent = "Not enough letters";
         } else if(!isWordValid(getWord())) {
+            linkLabel.tabIndex = -1;
             linkLabel.href = "#";
             linkLabel.textContent = "Invalid word";
         }
@@ -72,10 +74,12 @@ const handleLetter = (letter) => {
 
     if(currentCell >= cellsPerRow){
         if(isWordValid(getWord())){
+            linkLabel.tabIndex = 0;
             let link = `${document.location.origin}/play.html#${encryptWord(getWord())}`;
             linkLabel.href = link;
             linkLabel.textContent = link;
         }else{
+            linkLabel.tabIndex = -1;
             linkLabel.href = "#";
             linkLabel.textContent = "Invalid word";
         }

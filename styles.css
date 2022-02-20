@@ -44,22 +44,25 @@ p {
     font-size: 16px;
 }
 
-
-html {
-    height: 100%;
-}
-
 body {
-    height: 100%;
     margin: 0;
     font-family: 'Inter', sans-serif;
     background-color: var(--background);
     color: var(--font-main);
-    overflow-y: scroll;
+}
+
+.keyboard {
+    max-width: 600px;
+    width: 100%;
+    position: absolute;
+    margin: auto;
+    bottom: 12px;
+    padding: 0 8px;
 }
 
 .top {
     gap: 50px;
+    padding: 0 12px;
 }
 
 .row {
@@ -70,6 +73,10 @@ body {
 .col {
     display: flex;
     flex-direction: column;
+}
+
+.gap-min {
+    gap: 4px;
 }
 
 .gap {
@@ -117,7 +124,6 @@ body {
     justify-content: center;
 
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
-    transform: scale(1);
 	animation: pulse-black 2s infinite;
     animation-delay: calc(var(--order) * 0.3s);
 }
@@ -139,10 +145,33 @@ body {
 
 
 .key{
-    text-align: center;
-    line-height: 40px;
     height: 40px;
     width: 40px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--font-main);
+    background: var(--background-pri);
+    height: 60px;
+    width: 40px;
+    color: var(--font-alt);
+    outline: none;
+    border: 2px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.key:hover {
+    background-color: var(--background-sec);
+}
+
+.key:focus-visible {
+    border: 2px solid var(--font-accent);
+}
+
+.key svg {
+    fill: var(--font-main);
 }
 
 .actions {
@@ -200,4 +229,14 @@ body {
 
 .action-btn svg {
     fill: var(--font-main);
+}
+
+@media only screen and (max-width: 768px) {
+    .actions a {
+        width: 400px;
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
 }
